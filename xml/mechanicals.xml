@@ -1,0 +1,176 @@
+<rotors>
+    <historical>
+        <rotor id="I">
+            <notch>Q</notch>
+            <wiring>EKMFLGDQVZNTOWYHXUSPAIBRCJ</wiring>
+        </rotor>
+        <rotor id="II">
+            <notch>E</notch>
+            <wiring>AJDKSIRUXBLHWTMCQGZNPYFVOE</wiring>
+        </rotor>
+        <rotor id="III">
+            <notch>V</notch>
+            <wiring>BDFHJLCPRTXVZNYEIWGAKMUSQO</wiring>
+        </rotor>
+        <rotor id="IV">
+            <notch>J</notch>
+            <wiring>ESOVPZJAYQUIRHXLNFTGKDCMWB</wiring>
+        </rotor>
+        <rotor id="V">
+            <notch>Z</notch>
+            <wiring>VZBRGITYUPSDNHLXAWMJQOFECK</wiring>
+        </rotor>
+        <rotor id="VI">
+            <notch>ZM</notch>
+            <wiring>JPGVOUMFYQBENHZRDKASXLICTW</wiring>
+        </rotor>
+        <rotor id="VII">
+            <notch>ZM</notch>
+            <wiring>NZJHGRCXMYSWBOUFAIVLPEKQDT</wiring>
+        </rotor>
+        <rotor id="VIII">
+            <notch>ZM</notch>
+            <wiring>FKQHTLXOCBJSPDZRAMEWNIUYGV</wiring>
+        </rotor>
+
+    </historical>
+
+    <ktane>
+        <blackCipher>
+            <rotor id="I">
+                <notch>QD</notch>
+                <wiring>EKMFLGDQVZNTOWYHXUSPAIBRCJ</wiring>
+            </rotor>
+            <rotor id="II">
+                <notch>ER</notch>
+                <wiring>AJDKSIRUXBLHWTMCQGZNPYFVOE</wiring>
+            </rotor>
+            <rotor id="III">
+                <notch>VI</notch>
+                <wiring>BDFHJLCPRTXVZNYEIWGAKMUSQO</wiring>
+            </rotor>
+            <rotor id="IV">
+                <notch>JW</notch>
+                <wiring>ESOVPZJAYQUIRHXLNFTGKDCMWB</wiring>
+            </rotor>
+            <rotor id="V">
+                <notch>ZM</notch>
+                <wiring>VZBRGITYUPSDNHLXAWMJQOFECK</wiring>
+            </rotor>
+            <rotor id="VI">
+                <notch>LY</notch>
+                <wiring>JPGVOUMFYQBENHZRDKASXLICTW</wiring>
+            </rotor>
+            <rotor id="VII">
+                <notch>UH</notch>
+                <wiring>NZJHGRCXMYSWBOUFAIVLPEKQDT</wiring>
+            </rotor>
+            <rotor id="VIII">
+                <notch>CP</notch>
+                <wiring>FKQHTLXOCBJSPDZRAMEWNIUYGV</wiring>
+            </rotor>
+        </blackCipher>
+        <omegaDestroyer>
+            <reflector id="0">
+                <wiring>6209175843</wiring>
+            </reflector>
+            <reflector id="1">
+                <wiring>7810642935</wiring>
+            </reflector>
+            <reflector id="2">
+                <wiring>9642530817</wiring>
+            </reflector>
+            <reflector id="3">
+                <wiring>5037189462</wiring>
+            </reflector>
+            <reflector id="4">
+                <wiring>3975214608</wiring>
+            </reflector>
+            <reflector id="5">
+                <wiring>8761093524</wiring>
+            </reflector>
+            <reflector id="6">
+                <wiring>1358740296</wiring>
+            </reflector>
+            <reflector id="7">
+                <wiring>2496801375</wiring>
+            </reflector>
+            <reflector id="8">
+                <wiring>4982367150</wiring>
+            </reflector>
+            <reflector id="9">
+                <wiring>7564928031</wiring>
+            </reflector>
+        </omegaDestroyer>
+    </ktane>
+</rotors>
+
+<reflectors>
+    <historical>
+        <reflector id="A">
+            <wiring>EJMZALYXVBWFCRQUONTSPIKHGD</wiring>
+        </reflector>
+        <reflector id="B">
+            <wiring>YRUHQSLDPXNGOKMIEBFZCWVJAT</wiring>
+        </reflector>
+        <reflector id="C">
+            <wiring>FVPJIAOYEDRZXWGCTKUQSBNMHL</wiring>
+        </reflector>
+    </historical>
+
+    <ktane>
+        <blackCipher>
+            <reflector id="A">
+                <wiring>LUSNPQOMJIYAHDGEFXCVBTZRKW</wiring>
+            </reflector>
+            <reflector id="B">
+                <wiring>XQUMFEPOWLTJDZHGBVYKCRIASN</wiring>
+            </reflector>
+            <reflector id="C">
+                <wiring>ESKOAQMJYHCPGTDLFUBNRXZVIW</wiring>
+            </reflector>
+        </blackCipher>
+        <omegaDestroyer>
+            <rotor id="0">
+                <notch>0</notch>
+                <wiring>6209175843</wiring>
+            </rotor>
+            <rotor id="1">
+                <notch>1</notch>
+                <wiring>7810642935</wiring>
+            </rotor>
+            <rotor id="2">
+                <notch>2</notch>
+                <wiring>9642530817</wiring>
+            </rotor>
+            <rotor id="3">
+                <notch>3</notch>
+                <wiring>5037189462</wiring>
+            </rotor>
+            <rotor id="4">
+                <notch>4</notch>
+                <wiring>3975214608</wiring>
+            </rotor>
+            <rotor id="5">
+                <notch>5</notch>
+                <wiring>8761093524</wiring>
+            </rotor>
+            <rotor id="6">
+                <notch>6</notch>
+                <wiring>1358740296</wiring>
+            </rotor>
+            <rotor id="7">
+                <notch>7</notch>
+                <wiring>2496801375</wiring>
+            </rotor>
+            <rotor id="8">
+                <notch>8</notch>
+                <wiring>4982367150</wiring>
+            </rotor>
+            <rotor id="9">
+                <notch>9</notch>
+                <wiring>7564928031</wiring>
+            </rotor>
+        </omegaDestroyer>
+    </ktane>
+</reflectors>
