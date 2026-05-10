@@ -66,17 +66,22 @@ class Reflector extends RotorTemplate {
 
 class Rotor extends RotorTemplate {
     constructor(wiring, notch, id) {
-        super(wiring, notch);
+        super(wiring, notch, id);
         this.position = 0;
-    }
-
-    step() {
-        this.position = (this.position + 1) % 26;
     }
 }
 
 let rotors = [];
 
 function addRotor(wiring, notch, id) {
-    const rotor = new Rotor(wiring, notch);
+    const rotor = new Rotor(wiring, notch, id);
+    rotors.push(rotor);
 }
+
+
+fetch('../json/mechanicals.json')
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+    })
+    .catch(error => console.error('Error fetching mechanicals.json:', error));
