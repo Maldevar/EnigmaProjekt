@@ -12,53 +12,52 @@ class Plugboard {
     }
 }
 
-// RotorTemplate is a base class for both Rotor and Reflector, as they share some common properties and methods.
+// RotorTemplate creates a template class for the reflector and rotor, where each can make their own modifications.
 class RotorTemplate {
     constructor(wiring, notch, id, alphabet) {
-        this.wiring = [];
-        this.notch = 0;
+        this.wiring = wiring;
+        this.notch = notch;
         this.id = id;
         this.alphabet = Array.isArray(alphabet) ? alphabet : [];
 
     }
 
-    //
+    // Not important right now
     elementFromHTML(htmlString) {
         const template = document.createElement('template');
         template.innerHTML = htmlString.trim();
         return template.content.firstChild;
     }
 
+    // Injects HTML into the table body, which allows for a dynamic encryption.
     addHTML(htmlString, parent=document.getElementById("enigmaTableBody")) {
         parent.insertAdjacentHTML('beforeend', htmlString);
     }
 
+    // Removes HTML from the table body.
     removeHTML(id) {
         const element = document.getElementById(id.toString());
         console.log(element + " removed");
         element.remove();
     }
 
-    updateText(id, newText) {
-        const element = document.getElementById(id.toString());
-        if (element) {
-            element.textContent = newText;
-        }
-    }
-
-    rotate(id, direction) {
-        // Only rotate if the id matches this rotor/reflector
-        if (this.id == null || id == null || this.id.toString() !== id.toString()) return;
+    shiftArray(direction) {
+        // Only rotate this instance.
+        if (this.id == null) return;
 
         if (!Array.isArray(this.wiring) || this.wiring.length === 0) return;
 
         if (direction === "R") {
             this.wiring.unshift(this.wiring.pop());
+            this.alphabet.unshift(this.alphabet.pop());
         }
         else if (direction === "L") {
             this.wiring.push(this.wiring.shift());
+            this.alphabet.push(this.alphabet.shift());
         }
+        
     }
+
 }
 
 
@@ -122,60 +121,29 @@ function addRotor(wiring, notch) {
     }).join('');
 
     rotor.addHTML(`
-        ${headerRow}
-        <tr class="alphabetRow">
-            ${leftArrowCell}
-            ${topCells}
-            ${rightArrowCell}
-        </tr>
-        <tr class="alphabetRow">${secondRowCells}</tr>
+        <div id="${rotor.id}">
+            ${headerRow}
+            <tr class="alphabetRow" id="${rotor.id}TopRow">
+                ${leftArrowCell}
+                ${topCells}
+                ${rightArrowCell}
+            </tr>
+            <tr class="alphabetRow" id="${rotor.id}BottomRow">
+                ${secondRowCells}
+            </tr>
+        </div>
     `);
 
     const leftButton = document.getElementById(`${rotor.id}Left`);
     const rightButton = document.getElementById(`${rotor.id}Right`);
 
-    const shiftRowCells = (cells, direction) => {
-        if (!cells || cells.length === 0) return;
-
-        const state = cells.map((cell) => ({
-            text: cell.textContent,
-            className: cell.className
-        }));
-
-        if (direction === "R") {
-            state.unshift(state.pop());
-        } else if (direction === "L") {
-            state.push(state.shift());
-        }
-
-        cells.forEach((cell, index) => {
-            cell.textContent = state[index].text;
-            cell.className = state[index].className;
-        });
-    };
-
-    const updateRotorTable = (id, direction) => {
-        const leftBtn = document.getElementById(`${id}Left`);
-        if (!leftBtn) return;
-
-        const firstRow = leftBtn.closest('tr');
-        const secondRow = firstRow ? firstRow.nextElementSibling : null;
-
-        if (!firstRow || !secondRow) return;
-
-        const firstRowCells = Array.from(firstRow.querySelectorAll('td.tableCell'));
-        const secondRowCells = Array.from(secondRow.querySelectorAll('td.tableCell'));
-
-        shiftRowCells(firstRowCells, direction);
-        shiftRowCells(secondRowCells, direction);
-    };
 
     if (leftButton) {
         leftButton.addEventListener('click', (event) => {
             const buttonId = event.currentTarget.id;
             const id = buttonId.replace(/Left$/, '');
-            rotor.rotate(id, "L");
-            updateRotorTable(id, "L");
+            rotor.shiftArray("L");
+            tableShift(id, "L");
         });
     }
 
@@ -183,10 +151,11 @@ function addRotor(wiring, notch) {
         rightButton.addEventListener('click', (event) => {
             const buttonId = event.currentTarget.id;
             const id = buttonId.replace(/Right$/, '');
-            rotor.rotate(id, "R");
-            updateRotorTable(id, "R");
+            rotor.shiftArray("R");
+            tableShift(id, "R");
         });
     }
+
 
     rotors.push(rotor);
 
@@ -214,4 +183,26 @@ function decryptReflector(reflector, position) {
     if (!reflector || position < 0 || position >= reflector.wiring.length) return null;
 
     return reflector.alphabet.indexOf(reflector.wiring[position]);
+}
+
+function tableShift(id, direction) {
+    const topRow = document.getElementById(`${id}TopRow`);
+    const bottomRow = document.getElementById(`${id}BottomRow`);
+
+    //Define the cells that need to be shifted. The bottom row does not have the first and last cells, so we ignore the slice there
+    const topCells = Array.from(topRow.children).slice(1, -1);
+    const bottomCells = Array.from(bottomRow.children);
+    //If we shift to the right
+    if (direction === "R") {
+        //Insert the last cell before the first cell, disregarding the arrow cell
+        topRow.insertBefore(topCells[topCells.length - 1], topCells[0]);
+        bottomRow.insertBefore(bottomCells[bottomCells.length - 1], bottomCells[1]);
+    }
+    else if (direction === "L") {
+        topRow.insertBefore(topCells[0], topRow.lastElementChild);
+        bottomRow.insertBefore(bottomCells[0], bottomRow[bottomRow.length-1]);
+        console.log(bottomCells[0]);
+    }
+    
+
 }
