@@ -499,19 +499,19 @@ function encryptLetter(letter) {
     var foo = mainEnigmaMachine.plugboard.alphabet.indexOf(letter);
     if (foo === -1) return null;
 
-    foo=encryptRotor(mainEnigmaMachine.rotors[0], foo);console.log("After rotor 0: " + foo);
-    foo=encryptRotor(mainEnigmaMachine.rotors[1], foo);console.log("After rotor 1: " + foo);
-    foo=encryptRotor(mainEnigmaMachine.rotors[2], foo);console.log("After rotor 2: " + foo);
+    foo=encryptRotor(mainEnigmaMachine.rotors[0], foo);//console.log("After rotor 0: " + foo);
+    foo=encryptRotor(mainEnigmaMachine.rotors[1], foo);//console.log("After rotor 1: " + foo);
+    foo=encryptRotor(mainEnigmaMachine.rotors[2], foo);//console.log("After rotor 2: " + foo);
 
-    foo=encryptReflector(mainEnigmaMachine.reflector, foo);console.log("After reflector: " + foo);
+    foo=encryptReflector(mainEnigmaMachine.reflector, foo);//console.log("After reflector: " + foo);
 
-    foo=decryptRotor(mainEnigmaMachine.rotors[2], foo);console.log("After rotor 2: " + foo);
-    foo=decryptRotor(mainEnigmaMachine.rotors[1], foo);console.log("After rotor 1: " + foo);
-    foo=decryptRotor(mainEnigmaMachine.rotors[0], foo);console.log("After rotor 0: " + foo);
+    foo=decryptRotor(mainEnigmaMachine.rotors[2], foo);//console.log("After rotor 2: " + foo);
+    foo=decryptRotor(mainEnigmaMachine.rotors[1], foo);//console.log("After rotor 1: " + foo);
+    foo=decryptRotor(mainEnigmaMachine.rotors[0], foo);//console.log("After rotor 0: " + foo);
 
-    foo=decryptPlugboard(mainEnigmaMachine.plugboard, foo);console.log("After plugboard: " + foo);
+    foo=decryptPlugboard(mainEnigmaMachine.plugboard, foo);//console.log("After plugboard: " + foo);
     
-    console.log("From " + letter + " to " + jsonData.reflectors.alphabet[foo]);
+    //console.log("From " + letter + " to " + jsonData.reflectors.alphabet[foo]);
     return jsonData.reflectors.alphabet[foo];
 
 }
@@ -540,16 +540,10 @@ inputField.addEventListener("input", (event) => {
             for (let i = 0; i < -diff; i++) stepRotor(25, topRotor.id);
         }
     }
+
+
+
     inputFieldSize = newSize;
-    if (inputText === "") {
-        outputDiv.textContent = "Output will appear here";
-        return;
-    }
-    outputText = "";
-    for (const char of inputText) {
-        const encryptedChar = encryptLetter(char.toUpperCase());
-        outputText += encryptedChar ? encryptedChar : char;
-    }
-    outputDiv.textContent = outputText;
+
 });
 
