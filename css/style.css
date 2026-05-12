@@ -98,6 +98,17 @@ button:hover {
     font-family: monospace;
     border-collapse: collapse;
     border: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#enigmaTable * {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .headerRow {
@@ -147,6 +158,20 @@ button:hover {
     color: #221D23;
 }
 
+.encryptingCell {
+    background-color: #89403e;
+    color: #221D23;
+    border: 1px solid black;
+    padding: 5px;
+}
+
+.decryptingCell {
+    background-color: #97e653;
+    color: #221D23;
+    border: 1px solid black;
+    padding: 5px;
+}
+
 .arrowButton {
     border-radius: 2px;
     border: none;
@@ -180,3 +205,14 @@ button:hover {
     display: inline-block;;
 
 }
+
+#connectorLayer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+line { stroke-linecap: butt; }
+
