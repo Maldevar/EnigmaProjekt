@@ -57,6 +57,14 @@ a {
     background-color: #221D23;
     color:#81F499;
     text-align: center;
+    font-size: 28px;
+}
+
+#InputDiv input {
+    background-color: transparent;
+    border: none;
+    color: #81F499;
+    text-align: center;
 }
 
 #OutputDiv {
@@ -66,6 +74,7 @@ a {
     background-color: #221D23;
     color:#81F499;
     text-align: center;
+    font-size: 28px;
 }
 
 .mainButton {
@@ -98,6 +107,8 @@ button:hover {
     column-span: all;
 }
 
+
+
 .alphabetRow {
     text-align: center;
     column-span: all;
@@ -108,11 +119,6 @@ button:hover {
     color: #899E8B;
     border: 1px solid black;
     padding: 5px;
-}
-
-.selectedCell {
-    background-color: #AFECE7;
-    color: #221D23;
 }
 
 .notchedCell {
@@ -126,6 +132,7 @@ button:hover {
     border: none;
     padding-left: 15px;
     padding-right: 15px;
+
 }
 
 .baseCell {
@@ -133,6 +140,11 @@ button:hover {
     color: #221D23;
     border: 1px solid black;
     padding: 5px;
+}
+
+.selectedCell {
+    background-color: #AFECE7;
+    color: #221D23;
 }
 
 .arrowButton {

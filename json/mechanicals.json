@@ -1,5 +1,6 @@
 {
   "rotors": {
+    "alphabet": ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"],
     "historical": {
       "I": {
         "notch": "Q",
@@ -68,6 +69,7 @@
         "wiring": ["F","K","Q","H","T","L","X","O","C","B","J","S","P","D","Z","R","A","M","E","W","N","I","U","Y","G","V"]
       }
     },
+    "numberLine":[0,1,2,3,4,5,6,7,8,9],
     "omegaDestroyer": {
       "L0": {
         "wiring": ["L6","L2","L0","L9","L1","L7","L5","L8","L4","L3"]
@@ -102,6 +104,7 @@
     }
   },
   "reflectors": {
+    "alphabet": ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"],
     "historical": {
       "A": {
         "wiring": ["E","J","M","Z","A","L","Y","X","V","B","W","F","C","R","Q","U","O","N","T","S","P","I","K","H","G","D"]
@@ -124,6 +127,7 @@
         "wiring": ["E","S","K","O","A","Q","M","J","Y","H","C","P","G","T","D","L","F","U","B","N","R","X","Z","V","I","W"]
       }
     },
+    "numberLine":[0,1,2,3,4,5,6,7,8,9],
     "omegaDestroyer": {
       "L0": {
         "notch": "L0",
