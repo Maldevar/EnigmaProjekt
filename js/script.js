@@ -593,17 +593,11 @@ inputField.addEventListener("input", (event) => {
             for (let i = 0; i < -diff; i++) stepRotor(25, topRotor.id);
         }
     }
+
+
+
     inputFieldSize = newSize;
-    if (inputText === "") {
-        outputDiv.textContent = "Output will appear here";
-        return;
-    }
-    outputText = "";
-    for (const char of inputText) {
-        const encryptedChar = encryptLetter(char.toUpperCase());
-        outputText += encryptedChar ? encryptedChar : char;
-    }
-    outputDiv.textContent = outputText;
+
 });
 
 
